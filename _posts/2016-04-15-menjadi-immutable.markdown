@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  "Menjadi Immutable"
-date:   2015-04-18 08:43:59
-author: Alfat Harun
+title: "Menjadi Immutable"
+date: 2016-04-17 23:12:45
+author: Alfat Saputra Harun
 categories: Software
-tags:	curhat kisah
-cover:  "/assets/instacode.png"
+tags: curhat hidup
+cover: "/assets/instacode.png"
 ---
-
 ### Blog Pindahan
 
 Pertama, mari kita ucapkan alhamdulillah atas diresmikan blog baru saya ini. [Blog lama](https://blog.harunalfat.com) saya masih aktif, namun terdapat beberapa kesalahan di dalamnya sejak saya memigrasi kode-nya.
