@@ -1,74 +1,99 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2015-04-18 08:43:59
-author: Ben Centra
-categories: Jekyll
-tags:	jekyll welcome
-cover:  "/assets/instacode.png"
+title: "Menjadi Immutable"
+date: 2016-04-17 23:12:45
+author: Alfat Saputra Harun
+categories: Software
+tags: curhat hidup
+cover: "/assets/instacode.png"
 ---
+### Blog Pindahan
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+Pertama, mari kita ucapkan alhamdulillah atas diresmikan blog baru saya ini. [Blog lama](https://blog.harunalfat.com) saya masih aktif, namun terdapat beberapa kesalahan di dalamnya sejak saya memigrasi kode-nya.
 
-## Adding New Posts
+Intinya tulisannya di halaman luar memang masih bisa dibaca, namun *user tools* di belakangnya berantakan, *sigh*... Mungkin tulisan-tulisan di dalam blog lama akan saya migrasi kesini, karena beberapa memuat ilmu-ilmu yang cukup sayang jika dibuang begitu saja :)
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+### Menulis Seri
 
-### Tags and Categories
+Cukup cerita dengan blog lama saya, sekarang kita masuk ke babak baru kehidupan (duuh). Jadi, sudah sejak lama saya ingin menulis tentang hubungan antara manusia dan software, baik secara kiasan ataupun realita.
 
-If you list one or more categories or tags in the front matter of your post, they will be included with the post on the page as links. Clicking the link will bring you to an auto-generated archive page for the category or tag, created using the [jekyll-archive][jekyll-archive] gem.
+Terkadang ketika saya koding dalam pekerjaan saya dan menerapkan teknik-teknik software engineering, banyak hal bisa sangat erat dikaitkan dengan kehidupan manusia. Hal-hal inilah yang sering saya renungi, dan mungkin akan lebih baik jika saya tulis dan bagikan ke teman-teman lain di luar sana. Maka oleh itu, saya akan mulai rutin menulis serial **"Sofware dan Manusia"** di blog ini.
 
-### Cover Images
+Seri tulisan saya ini meskipun sesedikit memuat hal-hal teknis, namun tetap bisa dibaca oleh orang-orang yang tidak mempunyai pengalaman pemrograman kok :). Saya akan berusaha membuat hal teknisnya sesedikit mungkin.
 
-To add a cover image to your post, set the "cover" property in the front matter with the relative URL of the image (i.e. <code>cover: "/assets/cover_image.jpg"</code>).
+### Immutable
 
-### Code Snippets
+Bagi beberapa orang yang sudah pernah berkutat dengan pemrograman, mungkin Anda sudah mengenal kata *immutable*. Jika diartikan ke dalam bahasa Indonesia mungkin bisa dimaknai *tidak bisa berubah*. Nah, ada apa dengan *immutable* ini?
 
-You can use [highlight.js][highlight] to add syntax highlight code snippets:
+Dalam pemrograman objek, mungkin Anda sering membuka akses ke dalam nilai attribut-attribut suatu objek, entah melalui akses langsung atau *method get/set* yang punya tingkat akses publik.
 
-Use the [Liquid][liquid] `{% raw %}{% highlight <language> %}{% endraw %}` tag to add syntax highlighting to code snippets.
+contoh *mutable* 1 :
 
-For instance, this template...
-{% highlight html %}
-{% raw %}{% highlight javascript %}    
-function demo(string, times) {    
-  for (var i = 0; i < times; i++) {    
-    console.log(string);    
-  }    
-}    
-demo("hello, world!", 10);
-{% endhighlight %}{% endraw %}
-{% endhighlight %}
+{% highlight java %}
+public class Orang {
 
-...will come out looking like this:
+  public int umur;
+  public String nama;
 
-{% highlight javascript %}
-function demo(string, times) {
-  for (var i = 0; i < times; i++) {
-    console.log(string);
-  }
 }
-demo("hello, world!", 10);
 {% endhighlight %}
 
-Syntax highlighting is done using [highlight.js][highlight]. You can change the active theme in [head.html](https://github.com/bencentra/centrarium/blob/2dcd73d09e104c3798202b0e14c1db9fa6e77bc7/_includes/head.html#L15).
+contoh *mutable* 2 :
 
-### Images
+{% highlight java %}
+public class Orang {
 
-Lightbox has been enabled for images. To create the link that'll launch the lightbox, add <code>data-lightbox</code> and <code>data-title</code> attributes to an <code>&lt;a&gt;</code> tag around your <code>&lt;img&gt;</code> tag. The result is:
+  private int umur;
+  private String nama;
 
-<a href="//bencentra.com/assets/images/falcon9_large.jpg" data-lightbox="falcon9-large" data-title="Check out the Falcon 9 from SpaceX">
-  <img src="//bencentra.com/assets/images/falcon9_small.jpg" title="Check out the Falcon 9 from SpaceX">
-</a>
+  public int getUmur(){...}
+  public void setUmur(){...}
 
-For more information, check out the [Lightbox][lightbox] website.
+  public String getNama(){...}
+  public void setNama(){...}
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+}
+{% endhighlight %}
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
-[highlight]:   https://highlightjs.org/
-[lightbox]:    http://lokeshdhakar.com/projects/lightbox2/
-[jekyll-archive]: https://github.com/jekyll/jekyll-archives
-[liquid]: https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
+ini merupakan praktik yang kurang baik. Bisa dibaca lebih jelas di banyak tulisan, salah satunya [disini](http://www.yegor256.com/2014/06/09/objects-should-be-immutable.html).
+
+Berikut contoh untuk kode yang *immutable* :
+
+{% highlight java %}
+public final class Orang {
+
+  private final int umur;
+  private final String nama;
+
+  public Orang(int umur, String nama){
+    this.umur = umur; // final sekali set
+    this.nama = nama; // final sekali set
+  }
+
+  public int getUmur(){...}
+  public String getNama(){...}
+
+}
+{% endhighlight %}
+
+### Immutable Dalam Kehidupan
+
+Dijelaskan diatas bagaimana *immutable* dalam pemrograman. Untuk *immutable* dalam kehidupan sebenarnya kira-kira seperti apa? Banyak, salah satunya adalah istiqomah.
+
+Sebagaimana objek dalam pemrograman, ketika Anda membuka akses ke atribut internal si objek, maka akan banyak tangan-tangan programmer jahil yang mencoba merubah nilai atribut dari sang objek sehingga bisa memberikan respon sesuai yang diinginkan mereka, padahal sesungguhnya mereka menggerus perlahan-lahan struktur program itu sendiri.
+
+Manusia juga terkadang mengeskpos isi diri mereka keluar, dengan segala kelemahannya. Terkadang ketika Anda sudah menetapkan suatu hal di dalam hati, mungkin ingin bekerja di luar negeri, mungkin manjadi pengusaha sukses, mungkin bertobat untuk perbuatan dosa, ada saja yang Anda biarkan datang dan merubah ketetapan hati Anda.
+
+Seringkali orang-orang akan mengomentari Anda, dan kebanyakan bukan dengan komentar baik. Mungkin mereka mengatakan
+
+- "kemampuan bahasa inggris minim kok mau ke luar negeri?"
+- "halah, sekarang aja jualannya kamu malah rugi"
+- "ntar aja tobatnya bro, dikit-dikit juga diulangi"
+
+Awalnya mendengar satu dua komentar miring Anda mungkin masih kalem saja. Namun semakin sering orang berkomentar negatif, Anda mulai terseret dengan cara mereka berpikir, "jangan-jangan mereka benar?". Perlahan-lahan keyakinan di hati tadi mulai tergerus, berganti keraguan hingga akhirnya terhapus menjadi mimpi yang tak tersampaikan.
+
+Jika Anda belajar dari sebuah objek *immutable*, ketika dia terlahir di suatu program dengan perintah `new Orang(...)`, nilai-nilai yang dia pegang **tidak akan pernah berubah** hingga objek tersebut mati.
+
+Kita manusia ketika terlahir di dunia diperintahkan untuk beribadah, namun dengan segala ke-*mutable*-an kita, seringkali kita berubah haluan dan tersesat dalam perjalanan kita. Segala hal-hal baik yang bisa membantu kita dalam beribadah mulai tergantikan dengan hal-hal kecil yang kurang bermanfaat.
+
+Alangkah luar biasanya jika hati ini bisa menjadi *immutable*, yang jika sekali kita berniat hingga akhir zaman tidak akan pernah terbelokkan oleh apapun juga.
