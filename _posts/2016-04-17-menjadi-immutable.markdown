@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Menjadi Immutable"
+title:  "Menjadi Immutable (seri Software dan Manusia 1)"
 date:   2016-04-17 08:43:59
 author: Alfat Harun
-categories: Software
+categories: Software-dan-Manusia
 tags:	curhat kisah
 cover:  "/assets/instacode.png"
 ---
